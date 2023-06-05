@@ -20,13 +20,7 @@ export class UsersService {
     return this.repo.find({ where: { email } });
   }
 
-  async updata({
-    id,
-    attrs,
-  }: {
-    id: number;
-    attrs: Partial<User>;
-  }): Promise<User> {
+  async updata(id: number, attrs: Partial<User>): Promise<User> {
     const user = await this.repo.findOneBy({ id });
 
     if (!user) {
